@@ -38,16 +38,16 @@ import wpPot from "gulp-wp-pot";
     .pipe(gulpif(!PRODUCTION, sourcemaps.write()))
     .pipe(dest('./dist/css'))
     .pipe(server.stream());
-  }
+  };
   export const images = () => {
   return src('./src/images/**/*.{jpg,jpeg,png,svg,gif}')
     .pipe(gulpif(PRODUCTION, imagemin()))
     .pipe(dest('./dist/images'));
-  }
+  };
   export const copy = () => {
     return src(['./src/**/*','!./src/{images,js,sass}','!./src/{images,js,sass}/**/*'])
     .pipe(dest('./dist'));
-  }
+  };
     export const scripts = () => {
       return src('./src/js/bundle.js')
       .pipe(named())
@@ -75,7 +75,7 @@ import wpPot from "gulp-wp-pot";
         },
       }))
       .pipe(dest('./dist/js'));
-    }
+    };
     export const compress = () => {
       return src([
         "**/*",
@@ -113,7 +113,7 @@ import wpPot from "gulp-wp-pot";
       watch(['./src/**/*','!./src/{images,js,sass}','!./src/{images,js,sass}/**/*'], series(copy, reload));
       watch('./src/js/**/*.js', series(scripts, reload));
       watch("**/*.php", reload);
-    } 
+    };
     export const dev = series(clean, parallel(styles, images, copy, scripts), serve, watchForChanges);
     export const build = series(clean, parallel(styles, images, copy, scripts), pot, compress);
     export default dev;
