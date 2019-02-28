@@ -1,0 +1,5 @@
+node_modules/
+dist/
+bundled/
+src/images/
+screenshot.png
