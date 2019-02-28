@@ -91,7 +91,7 @@ import wpPot from "gulp-wp-pot";
       .pipe(
         gulpif(
           file => file.relative.split(".").pop() !== "zip",
-          replace("_themename", info.name)
+          replace("armory-outfitters", info.name)
         )
       )
       .pipe(zip(`${info.name}.zip`))
@@ -101,7 +101,7 @@ import wpPot from "gulp-wp-pot";
       return src("**/*.php")
         .pipe(
           wpPot({
-            domain: "_themename",
+            domain: "armory-outfitters",
             package: info.name
           })
         )
