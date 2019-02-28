@@ -3,3 +3,5 @@ dist/
 bundled/
 src/images/
 screenshot.png
+.idea/
+armory-outfitters.php
