@@ -9,3 +9,10 @@
   }
 
 add_action( 'wp_enqueue_scripts', 'armory_enqueue_styles');
+
+  function armory_load_fonts() {
+    wp_register_style('ao-googleFonts', 'https://fonts.googleapis.com/css?family=Cinzel|Fredericka+the+Great|Roboto+Slab');
+    wp_enqueue_style( 'ao-googleFonts' );
+  }
+
+  add_action('wp_print_styles', 'armory_load_fonts');
